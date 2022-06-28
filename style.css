@@ -10,3 +10,6 @@
 body{
     background-size: cover;
 }
+canvas{
+border:5px solid green;
+}
