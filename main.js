@@ -12,5 +12,5 @@ function setup(){
     video.hide();
 }
 function draw(){
-    image(0, 0, 600, 500);
+    image(video, 0, 0, 600, 500);
 }
