@@ -29,6 +29,9 @@ if(results.length > 0){
     console.log("rightWristX="+rightWristX+"rightWristY="+rightWristY);
 }
 }
+function play(){
+    theme_song.play();
+}
 function modelLoaded(){
     console.log('PoseNet Is Initialized!');
 }
