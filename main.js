@@ -4,6 +4,7 @@ leftWristX="";
 leftWristY="";
 rightWristX="";
 rightWristY="";
+scoreLeftWrist=0;
 function preload(){
     song=loadSound("Ben10omniversethemesonginenglish.mp3");
     theme_song=loadSound("Ben 10 Omniverse - Hindi.mp3")
@@ -22,7 +23,9 @@ if(results.length > 0){
     console.log(results);
     leftWristX=results[0].pose.leftWrist.x;
     leftWristY=results[0].pose.leftWrist.y;
+
     console.log("leftWristX="+leftWristX+"leftWistY="+leftWristY);
+    scoreLeftWrist=results[0].pose.keypoints[9].score;
 
     rightWristX=results[0].pose.rightWrist.x;
     rightWristY=results[0].pose.rightWrist.y;
@@ -37,4 +40,20 @@ function modelLoaded(){
 }
 function draw(){
     image(video, 0, 0, 600, 500);
+    fill("#FF0000");
+    stroke("#FF0000");
+if(scoreLeftWrist>0.2){
+    circle(leftWristX, leftWristY, 20);
+    song.stop();
+    if(theme_song=false){
+        theme_song.play();
+    }
+}
+    
+}
+function stop(){
+    song.stop();
+}
+function play(){
+    theme_song.play();
 }
