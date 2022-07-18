@@ -27,6 +27,7 @@ if(results.length > 0){
 
     console.log("leftWristX="+leftWristX+"leftWistY="+leftWristY);
     scoreLeftWrist=results[0].pose.keypoints[9].score;
+    scoreRightWrist=results[0].pose.keypoints[10].score;
 
     rightWristX=results[0].pose.rightWrist.x;
     rightWristY=results[0].pose.rightWrist.y;
