@@ -5,6 +5,7 @@ leftWristY="";
 rightWristX="";
 rightWristY="";
 scoreLeftWrist=0;
+scoreRightWrist=0;
 function preload(){
     song=loadSound("Ben10omniversethemesonginenglish.mp3");
     theme_song=loadSound("Ben 10 Omniverse - Hindi.mp3")
@@ -49,6 +50,14 @@ if(scoreLeftWrist>0.2){
         theme_song.play();
     }
 }
+if(scoreRightWrist>0.2){
+    circle(rightWristX, rightWristY, 20);
+    theme_song.stop();
+    if(song=false){
+        song.play2();
+        
+    }
+}
     
 }
 function stop(){
@@ -56,4 +65,7 @@ function stop(){
 }
 function play(){
     theme_song.play();
+}
+function play2(){
+    song.play();
 }
