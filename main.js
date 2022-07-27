@@ -1,11 +1,13 @@
 song="";
 theme_song="";
-leftWristX="";
-leftWristY="";
-rightWristX="";
-rightWristY="";
+leftWristX=0;
+leftWristY=0;
+rightWristX=0;
+rightWristY=0;
 scoreLeftWrist=0;
 scoreRightWrist=0;
+song_status="";
+theme_song_status="";
 function preload(){
     song=loadSound("Ben10omniversethemesonginenglish.mp3");
     theme_song=loadSound("Ben 10 Omniverse - Hindi.mp3")
@@ -42,31 +44,33 @@ function modelLoaded(){
 }
 function draw(){
     image(video, 0, 0, 600, 500);
+    song_status = song.isPlaying();
+	theme_song_status = theme_song.isPlaying();
     fill("#FF0000");
     stroke("#FF0000");
 if(scoreLeftWrist>0.2){
     circle(leftWristX, leftWristY, 20);
     song.stop();
-    if(theme_song=false){
+    if(theme_song_status==false){
         theme_song.play();
+        document.getElementById("song").innerHTML="Playing - Ben 10 Omniverse theme song in Hindi";
     }
 }
 if(scoreRightWrist>0.2){
     circle(rightWristX, rightWristY, 20);
     theme_song.stop();
-    if(song=false){
-        song.play2();
-        
+    if(song_status==false){
+       song.play();
+        document.getElementById("song").innerHTML="Playing - Ben 10 Omniverse Theme song in English";
     }
 }
     
 }
-function stop(){
-    song.stop();
-}
+
 function play(){
-    theme_song.play();
-}
-function play2(){
+    
     song.play();
+    song.setVolume(1);
+    song.rate(1);
 }
+
